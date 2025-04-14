@@ -1,0 +1,94 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estructura base */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #ff90b3;
+  color: black;
+  padding: .5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #ff90b3;
+  color: black;
+  text-align: center;
+  padding: 0.2rem;
+  font-size: 0.9rem;
+}
+
+/* Portada */
+.portada {
+  flex: 1; /* Ocupa el espacio restante */
+  background: url("../img/inicio.jpeg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+/* Contenedor con fondo oscuro semitransparente */
+.portada .bienvenida {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.portada h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.portada p {
+  font-size: 1.2rem;
+}
+
+/* Ocultar la imagen si ya está como fondo */
+.portada img {
+  display: none;
+}
+
