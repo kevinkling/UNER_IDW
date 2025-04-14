@@ -24,7 +24,7 @@ El sitio web servirá como catálogo de los distintos salones de eventos y servi
 - 🧑‍💻 Kevin Kling
 - 👨‍💻 Rodrigo Cerros Masetto
 - 👩‍💻 Luz Cymbaluk
-- Geraldine King Prime
+- 👩‍💻 Geraldine King Prime
 
 ### 📜 Licencia
 Este proyecto es desarrollado con fines educativos para la materia **Introducción al Desarrollo Web**.
