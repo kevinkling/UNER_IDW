@@ -23,7 +23,7 @@ body {
 header {
   background-color: #ff90b3;
   color: black;
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,6 +56,9 @@ footer {
   text-align: center;
   padding: 0.2rem;
   font-size: 0.9rem;
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
 }
 
 /* Portada */
@@ -93,14 +96,15 @@ footer {
   display: none;
 }
 
+/********************* SECCION CATALOGO *********************/
 
 :root {
   --color-primario: #af07f1;
   --color-secundario: #0829e6;
-  --color-background-sombra: #E92F3D30;
-  --color-background: #EFF6F5;
+  --color-background-sombra: #e92f3d30;
+  --color-background: #eff6f5;
   --color-texto: #3f14da;
-  --text-default: 'Open Sans';
+  --text-default: "Open Sans";
 }
 
 #menu-salon .contenedor-principal {
@@ -200,8 +204,79 @@ footer {
 .container-salon:hover .imagen-salon img {
   transform: scale(1.15);
 }
-footer{
+
+/********************* SECCION CONTACTO *********************/
+
+.titulo-contacto {
+  text-align: center;
+  background-color: #7e78d2;
+  color: white;
+  padding: 20px 0;
+}
+
+.contenedor-contacto {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #bbdbd1, #8e9db9);
   display: flex;
-  margin-top: auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100vh;
+}
+
+.seccion-informacion {
+  flex: 1;
+  min-width: 300px;
+  max-width: 48%;
+  padding: 20px;
+  border-radius: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.informacion-contacto h2 {
+  color: #6f58c9;
+  margin-top: 40px;
+}
+
+.informacion-contacto h3 {
+  margin: 0 0 20px 0;
+  font-weight: normal;
+}
+
+/* Redes sociales */
+
+.redes {
+  margin-top: 20px;
+}
+
+.redes a {
+  margin-right: 10px;
+}
+
+/* Sección formulario */
+
+.seccion-formulario {
+  flex: 1;
+  display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.formulario {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.formulario form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seccion-formulario label {
+  font-weight: bold;
 }
