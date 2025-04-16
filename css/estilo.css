@@ -94,6 +94,64 @@ footer {
 }
 
 
+
+
+/*SECCION DE LUZ NO TOCARRRRRRRRR*/
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #bbdbd1, #8e9db9);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+
+/*informacion de contacto*/
+body > h1 {
+
+  text-align: center;
+  background-color: #7e78d2;
+  color: white;
+  padding: 20px 0;
+  margin: 0;
+}
+
+/* TITULOS: NRO CELULAR - EMAIL - UBICACION - ESCRIBINOS */
+h2 {
+  color: #6f58c9;
+  margin-top: 40px;
+} 
+
+
+h3 {
+  margin: 0 0 20px 0;
+  font-weight: normal;
+} 
+
+/* veeer*/
+body > h2, body > h3, form {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* veeer*/
+
+/*FORMULARIO*/
+form {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: bold;
+} 
+
 :root {
   --color-primario: #af07f1;
   --color-secundario: #0829e6;
