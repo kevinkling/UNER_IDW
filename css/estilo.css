@@ -332,3 +332,20 @@ section {
 }
 
 /* Fin de la sección de información institucional */
+
+
+/* MEDIA QUERIES */
+/* Teléfonos pequeños */
+@media only screen and (max-width: 480px) {
+  /* estilos para móviles chicos */
+}
+
+/* Tablets y móviles grandes */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  /* estilos para tablets o móviles grandes */
+}
+
+/* Laptops y pantallas grandes */
+@media only screen and (min-width: 769px) {
+  /* estilos para escritorio */
+}
