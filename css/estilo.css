@@ -105,7 +105,7 @@ main {
 }
 
 
-/* Sección de información institucional */
+/********************* SECCION INFORMACION INSTIITUCIONAL *********************/
 
 .informacion {
   display: flex;
@@ -120,12 +120,12 @@ main {
 }
 
 .container {
-  background-color: white; /* Fondo blanco para el texto */
-  padding: 1.5rem; /* Espaciado interno */
-  border-radius: 10px; /* Bordes redondeados (opcional) */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar (opcional) */
-  width: 100%; /* Ajusta el ancho según sea necesario */
-  max-width: 800px; /* Limita el ancho máximo */
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
 }
 
 .salon-image {
@@ -150,8 +150,6 @@ main {
   color: #ff90b3;
   font-size: 1.2rem;
 }
-
-/* Fin de la sección de información institucional */
 
 
 /* MEDIA QUERIES */
