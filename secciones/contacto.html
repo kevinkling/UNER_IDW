@@ -13,20 +13,35 @@
   <link href="../css/estilo.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
-<header>
-  <h1>Castillo de Colores</h1>
-  <nav>
-    <ul>
-      <li><a href="../index.html">Inicio</a></li>
-      <li><a href="informacion.html">Informacion</a></li>
-      <li><a href="catalogo.html">Catalogo</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
-
 <body>
-
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-rosa">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Castillo de Colores</a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCastillo" aria-controls="navbarCastillo" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarCastillo">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="informacion.html">Informacion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="catalogo.html">Catalogo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
       <!-- Contenido principal -->
       <main class="container my-5">
         <h1 class="text-center mb-4">Información de contacto</h1>
@@ -85,12 +100,9 @@
         </section>
       </main>
 
-  </div>
+      <footer class="bg-rosa text-center text-white py-2">
+        <p class="mb-0">&copy; 2025 <strong>Salones Infantiles</strong>. Todos los derechos reservados.</p>
+      </footer>
+      <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
-
-<footer>
-  <p>&copy; 2025 Salones Infantiles. Todos los derechos reservados.</p>
-</footer>
-<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </html>
