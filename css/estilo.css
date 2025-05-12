@@ -12,8 +12,16 @@ body {
   color: #333;
 }
 
+main {
+  flex: 1;
+}
+
 .bg-rosa {
   background-color: #ff90b3;
+}
+
+.bg-rosa-claro {
+  background-color: #ffddea;
 }
 
 /* Header */
@@ -67,9 +75,6 @@ body {
 :root {
   --color-secundario: #0829e6;
   --color-texto: #3f14da;
-}
-body {
-  background-color: #ff90b3;
 }
 
 .carousel-item {
