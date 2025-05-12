@@ -12,27 +12,50 @@
   </head>  
   <body>
     <header>
-      <h1>Castillo de Colores</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="secciones/informacion.html">Informacion</a></li>
-          <li><a href="secciones/catalogo.html">Catalogo</a></li>
-          <li><a href="secciones/contacto.html">Contacto</a></li>
-        </ul>
+      <nav class="navbar navbar-expand-lg navbar-light bg-rosa">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Castillo de Colores</a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCastillo" aria-controls="navbarCastillo" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarCastillo">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="secciones/informacion.html">Informacion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="secciones/catalogo.html">Catalogo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="secciones/contacto.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
     </header>
-
-    <main class="portada">
-      <img src="img/inicio.jpeg" alt="Salón de cumpleaños" ></img>
-      <section class="bienvenida">
-        <h2>¡Bienvenidos!</h2>
-        <p>Alquilá el salón <strong>perfecto</strong> para el cumpleaños de tus peques. 🥳</p>
-      </section>
+    <main class="flex-fill">
+      <div class="container-fluid p-0">
+        <!-- Sección de portada -->
+        <section class="portada d-flex align-items-center justify-content-center">
+          <div class="contenido-overlay text-center p-4">
+            <h2 class="text-white display-4 font-weight-bold">¡Bienvenidos al Castillo de Colores!</h2>
+            <p class="text-white p-3 rounded shadow-lg">Alquilá el salón <strong>perfecto</strong> para el cumpleaños de tus peques. 🥳</p>
+            <div class="d-flex justify-content-end mt-4">
+              <a id="boton-presupuesto" href="#" class="btn btn-sm mt-4 bg-rosa">Solicitar presupuesto</a>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
-
-    <footer>
-      <p>&copy; 2025 Salones Infantiles. Todos los derechos reservados.</p>
+    <footer class="bg-rosa text-center text-white py-2">
+      <p class="mb-0">&copy; 2025 <strong>Salones Infantiles</strong>. Todos los derechos reservados.</p>
     </footer>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
