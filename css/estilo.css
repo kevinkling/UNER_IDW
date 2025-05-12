@@ -1,11 +1,4 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Estructura base */
+/* Estructura base / Estilos generales */
 html,
 body {
   height: 100%;
@@ -19,81 +12,54 @@ body {
   color: #333;
 }
 
-/* Header */
-header {
+.bg-rosa {
   background-color: #ff90b3;
-  color: black;
-  padding: 0.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-header h1 {
-  font-size: 1.8rem;
-}
+/* Header */
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-nav a {
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
 
 /* Footer */
-footer {
-  background-color: #ff90b3;
-  color: black;
-  text-align: center;
-  padding: 0.2rem;
-  font-size: 0.9rem;
-  display: flex;
-  margin-top: auto;
-  justify-content: center;
-}
+
 
 /* Portada */
 .portada {
-  flex: 1;
-  /* Ocupa el espacio restante */
-  background: url("../img/inicio.jpeg") no-repeat center center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  background-image: url('../img/b-index/b1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+.contenido-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.contenido-overlay h2 {
+  font-size: clamp(1.5rem, 2vw, 3rem);
   color: white;
-  padding: 2rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
 }
 
-/* Contenedor con fondo oscuro semitransparente */
-.portada .bienvenida {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 600px;
+.contenido-overlay p {
+  font-size: clamp(1.2rem, 1.5vw, 1.6rem);
+  color: white;
+  padding-bottom: 1rem;
 }
 
-.portada h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+#boton-presupuesto {
+  font-size: clamp(1rem, 1vw, 1.2rem);
 }
 
-.portada p {
-  font-size: 1.2rem;
-}
-
-/* Ocultar la imagen si ya está como fondo */
-.portada img {
-  display: none;
+#boton-presupuesto:hover {
+  background-color: #ff7aa3;
+  color: black;
+  transform: scale(1.03);
 }
 
 /********************* SECCION CATALOGO *********************/
@@ -304,10 +270,6 @@ footer {
   max-width: 800px; /* Limita el ancho máximo */
 }
 
-section {
-  margin-bottom: 1.5rem;
-}
-
 .salon-image {
   width: 100%;
   height: auto;
@@ -338,6 +300,12 @@ section {
 /* Teléfonos pequeños */
 @media only screen and (max-width: 480px) {
   /* estilos para móviles chicos */
+  .portada {
+    background-image: url('../img/b-index/b-mobile.jpg');
+  }
+  footer p strong {
+    display: none; /* No mostrar el strong en móviles */
+  }
 }
 
 /* Tablets y móviles grandes */
