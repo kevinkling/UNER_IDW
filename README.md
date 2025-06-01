@@ -28,3 +28,7 @@ El sitio web servirá como catálogo de los distintos salones de eventos y servi
 
 ### 📜 Licencia
 Este proyecto es desarrollado con fines educativos para la materia **Introducción al Desarrollo Web**.
+
+
+### ⚠️ Notas : 
+- Para gestionar los salones, primero entra a la pestaña Catálogo y ahí vas a ver el botón Gestión que te lleva al formulario para administrar los salones.

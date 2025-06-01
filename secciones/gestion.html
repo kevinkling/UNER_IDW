@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Salones | Castillo de Colores</title>
+    <meta name="description" content="Panel de gestión de salones infantiles. Agregá, editá y eliminá salones para cumpleaños." />
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+    <link href="../bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/estilo.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-rosa">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">Castillo de Colores</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCastillo" aria-controls="navbarCastillo" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarCastillo">
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Gestión</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="informacion.html">Informacion</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="catalogo.html">Catalogo</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </header>
+      </header>
+
+      <main class="container my-5">
+        <h2 class="mb-4 text-center">Gestión de Salones</h2>
+      
+        <form id="formSalon" class="mb-5" enctype="multipart/form-data">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="nombre" placeholder="Nombre del salón" required>
+            </div>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="medidas" placeholder="Medidas (ej. 30mts x 40mts)" required>
+            </div>
+            <div class="col-md-4">
+              <input type="file" class="form-control" id="imagen" accept="image/*" required>
+            </div>
+          </div>
+          <div class="text-end mt-3">
+            <button type="submit" class="btn bg-rosa text-white">Guardar salón</button>
+          </div>
+        </form>
+      
+        <div class="table-responsive">
+          <table id="tabla-salones" class="table table-striped table-bordered align-middle">
+            <thead class="table-dark text-center">
+              <tr>
+                <th>Nombre</th>
+                <th>Medidas</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Filas dinámicas -->
+            </tbody>
+          </table>
+        </div>
+      </main>      
+
+    <footer class="bg-rosa text-center text-white py-2">
+      <p class="mb-0">&copy; 2025 <strong>Salones Infantiles</strong>. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/gestion.js"></script>
+  </body>
+</html>
