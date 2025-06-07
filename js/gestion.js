@@ -2,6 +2,7 @@
 const formSalon = document.getElementById('formSalon');
 const nombreInput = document.getElementById('nombre');
 const medidasInput = document.getElementById('medidas');
+const importeInput = document.getElementById('importe');
 const imagenInput = document.getElementById('imagen');
 const tablaBody = document.querySelector('#tabla-salones tbody');
 
@@ -24,6 +25,7 @@ function renderTabla() {
     fila.innerHTML = `
       <td>${salon.nombre}</td>
       <td>${salon.medidas}</td>
+      <td>$${salon.importe?.toLocaleString() || '-'}</td>
       <td><img src="${salon.imagen}" alt="${salon.nombre}" style="max-width:100px; max-height:80px; object-fit:cover;"></td>
       <td class="text-center">
         <button class="btn btn-sm btn-warning me-2 editar-btn" data-index="${index}">Editar</button>
@@ -58,6 +60,7 @@ function guardarSalon() {
 function limpiarFormulario() {
   formSalon.reset();
   editIndex = null;
+  importeInput.value = '';
   imagenInput.required = true;
   formSalon.querySelector('button[type="submit"]').textContent = 'Guardar salón';
 }
@@ -71,8 +74,10 @@ formSalon.addEventListener('submit', (e) => {
 
   const nombre = nombreInput.value.trim();
   const medidas = medidasInput.value.trim();
+  const importe = parseFloat(importeInput.value);
 
-  if (!nombre || !medidas) {
+
+  if (!nombre || !medidas || isNaN(importe)) {
     alert('Por favor completa todos los campos.');
     return;
   }
@@ -83,7 +88,7 @@ formSalon.addEventListener('submit', (e) => {
     if (imagenInput.files.length > 0) {
       // Leer nueva imagen y actualizar
       leerImagen(imagenInput.files[0]).then((imgDataUrl) => {
-        salones[editIndex] = { nombre, medidas, imagen: imgDataUrl };
+        salones[editIndex] = { nombre, medidas, imagen: imgDataUrl, importe };
         guardarSalon();
         renderTabla();
         limpiarFormulario();
@@ -92,6 +97,7 @@ formSalon.addEventListener('submit', (e) => {
       // Mantener imagen actual
       salones[editIndex].nombre = nombre;
       salones[editIndex].medidas = medidas;
+      salones[editIndex].importe = importe;
       guardarSalon();
       renderTabla();
       limpiarFormulario();
@@ -104,7 +110,7 @@ formSalon.addEventListener('submit', (e) => {
     }
 
     leerImagen(imagenInput.files[0]).then((imgDataUrl) => {
-      salones.push({ nombre, medidas, imagen: imgDataUrl });
+      salones.push({ nombre, medidas, imagen: imgDataUrl, importe });
       guardarSalon();
       renderTabla();
       limpiarFormulario();
@@ -126,6 +132,7 @@ function editarSalon(index) {
   const salon = salones[index];
   nombreInput.value = salon.nombre;
   medidasInput.value = salon.medidas;
+  importeInput.value = salon.importe ?? '';
   imagenInput.value = ''; // No cargamos imagen para editar, usuario puede cambiarla si quiere
   imagenInput.required = false;
   editIndex = index;
