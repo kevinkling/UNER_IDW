@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presupuesto | Castillo de Colores</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/estilo.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="bg-rosa p-3 text-white text-center">
+        <h1>Presupuestá tu evento</h1>
+        <a href="../index.html" class="btn btn-light btn-sm mt-2">← Volver al inicio</a>
+    </header>
+
+    <main class="container my-5">
+        <form id="formPresupuesto" class="card p-4 shadow">
+            <div class="mb-3">
+                <label for="salon" class="form-label">Elegí el salón</label>
+                <select id="salon" class="form-select" required>
+                    <option value="">Seleccioná un salón</option>
+                </select>
+                <small class="text-muted">Los salones se cargan desde la sección de gestión.</small>
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Servicios adicionales</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="katering" />
+                    <label class="form-check-label" for="katering">Katering ($5.000)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="musica" />
+                    <label class="form-check-label" for="musica">Música ($4.000)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="animacion" />
+                    <label class="form-check-label" for="animacion">Animación ($3.000)</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha del evento</label>
+                <input type="date" id="fecha" class="form-control" required />
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col">
+                    <label for="horaInicio" class="form-label">Desde</label>
+                    <input type="time" id="horaInicio" class="form-control" required />
+                </div>
+                <div class="col">
+                    <label for="horaFin" class="form-label">Hasta</label>
+                    <input type="time" id="horaFin" class="form-control" required />
+                </div>
+            </div>
+
+            <button type="submit" class="btn bg-rosa text-white mt-3">Calcular presupuesto</button>
+        </form>
+
+        <div id="resultado" class="alert alert-info mt-4 d-none"></div>
+    </main>
+
+    <footer class="bg-rosa text-center text-white py-2 mt-5">
+        <p class="mb-0">&copy; 2025 Castillo de Colores</p>
+    </footer>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/presupuesto.js"></script>
+</body>
+
+</html>
