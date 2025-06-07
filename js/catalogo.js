@@ -1,26 +1,31 @@
 // Obtener salones del localStorage o usar una lista por defecto
 const salones = JSON.parse(localStorage.getItem("salones")) || [
     {
-        nombre: "Salón 1",
+        nombre: "Salón Fiesta Alegre",
         medidas: "30mts x 40mts",
+        importe: 15000,  // ejemplo en la moneda que uses
         imagen: "../img/salon 1.png"
     },
     {
-        nombre: "Salón 2",
+        nombre: "Salón Pequeños Sueños",
         medidas: "15mts x 20mts",
+        importe: 8000,
         imagen: "../img/salon 2.png"
     },
     {
-        nombre: "Salón 3",
+        nombre: "Salón Diversión Total",
         medidas: "25mts x 20mts",
+        importe: 12000,
         imagen: "../img/salon 3.png"
     },
     {
-        nombre: "Salón 4",
+        nombre: "Salón Gran Celebración",
         medidas: "30mts x 40mts",
+        importe: 16000,
         imagen: "../img/salon 4.png"
     }
 ];
+
 
 /* Función para renderizar el catálogo */
 function renderCatalogo() {
