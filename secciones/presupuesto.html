@@ -1,76 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Presupuesto | Castillo de Colores</title>
-    <link rel="icon" href="../img/favicon.png" type="image/png">
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../css/estilo.css" rel="stylesheet" />
-</head>
+    <title>Castillo de Colores | Cumpleaños Felices</title>
+    <meta name="description" content="Alquiler de salones infantiles para cumpleaños. Castillo de Colores, el lugar perfecto para celebrar." />
+    <link rel="icon" href="../img/favicon.png" type="image/png" />
+    <link href="../bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../css/estilo.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="../css/presupuesto.css" rel="stylesheet" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-rosa">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Castillo de Colores</a>
 
-<body>
-    <header class="bg-rosa p-3 text-white text-center">
-        <h1>Presupuestá tu evento</h1>
-        <a href="../index.html" class="btn btn-light btn-sm mt-2">← Volver al inicio</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCastillo"
+            aria-controls="navbarCastillo"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarCastillo">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="secciones/informacion.html">Informacion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="secciones/catalogo.html">Catalogo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="secciones/contacto.html">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Presupuestar</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main class="container my-5">
-        <form id="formPresupuesto" class="card p-4 shadow">
-            <div class="mb-3">
-                <label for="salon" class="form-label">Elegí el salón</label>
-                <select id="salon" class="form-select" required>
-                    <option value="">Seleccioná un salón</option>
-                </select>
-                <small class="text-muted">Los salones se cargan desde la sección de gestión.</small>
+      <h1 class="mb-4">Generar presupuesto</h1>
 
-            </div>
+      <!-- Selección de salón -->
+      <div class="mb-4">
+        <label for="salonSelect" class="form-label">Seleccioná un salón:</label>
+        <select class="form-select" id="salonSelect" required>
+          <option value="" disabled selected>Seleccioná un salón</option>
+        </select>
+        <img id="imagenSalonSeleccionado" class="img-fluid d-none" alt="Imagen del salón seleccionado" />
+      </div>
 
-            <div class="mb-3">
-                <label class="form-label">Servicios adicionales</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="katering" />
-                    <label class="form-check-label" for="katering">Katering ($5.000)</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="musica" />
-                    <label class="form-check-label" for="musica">Música ($4.000)</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="animacion" />
-                    <label class="form-check-label" for="animacion">Animación ($3.000)</label>
-                </div>
-            </div>
+      <!-- Selección de servicios -->
+      <div class="mb-4">
+        <label class="form-label">Seleccioná servicios adicionales:</label>
+        <div id="serviciosCheckboxes" class="row row-cols-1 row-cols-md-2 g-2"></div>
+      </div>
 
-            <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha del evento</label>
-                <input type="date" id="fecha" class="form-control" required />
-            </div>
+      <!-- Total -->
+      <div class="mb-4">
+        <h4>Total estimado: <span id="importeTotal">$0.00</span></h4>
+      </div>
 
-            <div class="mb-3 row">
-                <div class="col">
-                    <label for="horaInicio" class="form-label">Desde</label>
-                    <input type="time" id="horaInicio" class="form-control" required />
-                </div>
-                <div class="col">
-                    <label for="horaFin" class="form-label">Hasta</label>
-                    <input type="time" id="horaFin" class="form-control" required />
-                </div>
-            </div>
-
-            <button type="submit" class="btn bg-rosa text-white mt-3">Calcular presupuesto</button>
+      <!-- Formulario de contacto -->
+      <div class="mb-4">
+        <h5>Datos de contacto</h5>
+        <form id="formContacto">
+          <div class="mb-2">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required />
+          </div>
+          <div class="mb-2">
+            <label for="correo" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="correo" required />
+          </div>
+          <div class="mb-2">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" id="telefono" required />
+          </div>
+          <div class="text-end mt-3">
+            <button type="submit" class="btn btn-primary">Reservar</button>
+          </div>
         </form>
+      </div>
 
-        <div id="resultado" class="alert alert-info mt-4 d-none"></div>
+      <!-- Modal de confirmación -->
+      <div class="modal fade" id="reservaModal" tabindex="-1" aria-labelledby="reservaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+              <h5 class="modal-title" id="reservaModalLabel">¡Reserva realizada!</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+              <p>Gracias por tu reserva. Nos comunicaremos con vos a la brevedad.</p>
+              <hr />
+              <p><strong>Nombre:</strong> <span id="resumenNombre"></span></p>
+              <p><strong>Correo:</strong> <span id="resumenCorreo"></span></p>
+              <p><strong>Teléfono:</strong> <span id="resumenTelefono"></span></p>
+              <p><strong>Salón:</strong> <span id="resumenSalon"></span></p>
+              <p><strong>Servicios:</strong> <span id="resumenServicios"></span></p>
+              <p><strong>Total:</strong> <span id="resumenTotal"></span></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="bg-rosa text-center text-white py-2 mt-5">
-        <p class="mb-0">&copy; 2025 Castillo de Colores</p>
+      <p class="mb-0">&copy; 2025 Castillo de Colores</p>
     </footer>
 
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/presupuesto.js"></script>
-</body>
-
+  </body>
 </html>
