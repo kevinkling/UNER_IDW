@@ -94,6 +94,9 @@ function manejarEnvioFormulario(e) {
   document.getElementById("resumenServicios").textContent = contacto.servicios.length ? contacto.servicios.join(", ") : "Ninguno";
   document.getElementById("resumenTotal").textContent = contacto.total;
 
+  // Guardar presupuesto en localStorage
+  guardarPresupuesto(contacto);
+
   // Mostrar modal y autodescartarlo
   const modal = new bootstrap.Modal(document.getElementById("reservaModal"));
   modal.show();
@@ -105,6 +108,13 @@ function manejarEnvioFormulario(e) {
   actualizarImagenSalon();
   serviciosCheckboxes.querySelectorAll("input").forEach(cb => (cb.checked = false));
   actualizarTotal();
+}
+
+function guardarPresupuesto(contacto) {
+  // Guardar en localStorage
+  const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
+  presupuestos.push(contacto);
+  localStorage.setItem("presupuestos", JSON.stringify(presupuestos));
 }
 
 // Inicialización
