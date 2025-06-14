@@ -11,7 +11,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
   if (resultado) {
     sessionStorage.setItem("accessToken", resultado.accessToken);
     sessionStorage.setItem("username", resultado.username);
-    window.location.href = "gestion.html";
+    window.location.href = "../index.html";
   } else {
     document.getElementById("mensaje").textContent = "Credenciales incorrectas";
   }
