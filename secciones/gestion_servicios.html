@@ -13,55 +13,56 @@
 
   <body>
     <header>
-      <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-rosa">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="../index.html">Castillo de Colores</a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-rosa">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../index.html">Castillo de Colores</a>
 
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarCastillo"
-              aria-controls="navbarCastillo"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCastillo"
+            aria-controls="navbarCastillo"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <div class="collapse navbar-collapse" id="navbarCastillo">
-              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle active" href="#" id="navbarGestion" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Gestión </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarGestion">
-                    <li><a class="dropdown-item" href="gestion_salones.html">Gestión de Salones</a></li>
-                    <li><a class="dropdown-item active" href="#">Gestión de Servicios</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../index.html">Inicio</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="informacion.html">Informacion</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="catalogo.html">Catalogo</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contacto.html">Contacto</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="presupuesto.html">Presupuestar</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="login.html">Login</a>
-                </li>
-              </ul>
-            </div>
+          <div class="collapse navbar-collapse" id="navbarCastillo">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown" id="navbarGestion">
+                <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Gestión </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarGestion">
+                  <li><a class="dropdown-item" href="gestion_salones.html">Gestión de Salones</a></li>
+                  <li><a class="dropdown-item active" href="#">Gestión de Servicios</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="informacion.html">Informacion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="catalogo.html">Catalogo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contacto.html">Contacto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="presupuesto.html">Presupuestar</a>
+              </li>
+              <li class="nav-item" id="loginNavItem">
+                <a class="nav-link" href="login.html">Login</a>
+              </li>
+              <li class="nav-item d-none" id="logoutNavItem">
+                <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+              </li>
+            </ul>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
     </header>
 
     <main class="container-xl my-5">
@@ -106,6 +107,7 @@
     </footer>
 
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../js/main.js"></script>
     <script src="../js/gestion_servicios.js"></script>
   </body>
 </html>

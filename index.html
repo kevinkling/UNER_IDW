@@ -5,25 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Castillo de Colores | Cumpleaños Felices</title>
     <meta name="description" content="Alquiler de salones infantiles para cumpleaños. Castillo de Colores, el lugar perfecto para celebrar." />
-    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="icon" href="img/favicon.png" type="image/png" />
     <link href="bootstrap/css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="css/estilo.css" rel="stylesheet" type="text/css" media="screen" />
-  </head>  
+  </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-rosa">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Castillo de Colores</a>
-          
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCastillo" aria-controls="navbarCastillo" aria-expanded="false" aria-label="Toggle navigation">
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCastillo"
+            aria-controls="navbarCastillo"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
-          
+
           <div class="collapse navbar-collapse" id="navbarCastillo">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarGestion" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Gestión </a>
+              <li class="nav-item dropdown d-none" id="navbarGestion">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Gestión </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarGestion">
                   <li><a class="dropdown-item" href="secciones/gestion_salones.html">Gestión de Salones</a></li>
                   <li><a class="dropdown-item" href="secciones/gestion_servicios.html">Gestión de Servicios</a></li>
@@ -44,9 +52,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="secciones/presupuesto.html">Presupuestar</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" id="loginNavItem">
                 <a class="nav-link" href="secciones/login.html">Login</a>
               </li>
+              <li class="nav-item d-none" id="logoutNavItem">
+                <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+              </li>              
             </ul>
           </div>
         </div>
@@ -70,6 +81,6 @@
       <p class="mb-0">&copy; 2025 <strong>Salones Infantiles</strong>. Todos los derechos reservados.</p>
     </footer>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

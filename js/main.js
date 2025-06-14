@@ -1,14 +1,29 @@
+/* JS global que va a estar disponible en todos los html */
+
+import { logout } from "./logout.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const token = sessionStorage.getItem("accessToken");
+  const estaLogeado = !!token; // true si hay token
 
-  //Si hay un token, significa que el usuario está autenticado y mostraremos el botón de gestión
-  toggleVisibilityByAuth("navbarGestion", token);
+  cambiarVisibilidadElementoId("navbarGestion", estaLogeado);
+  cambiarVisibilidadElementoId("logoutNavItem", estaLogeado);
+  cambiarVisibilidadElementoId("loginNavItem", !estaLogeado);
+
+  // Asignar evento al botón de logout
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", e => {
+      e.preventDefault();
+      logout();
+    });
+  }
 });
 
-/* Funcion que cambia la visibilidad del elemento que le pasamos por parametro */
-function toggleVisibilityByAuth(elementId, token) {
-  const element = document.getElementById(elementId);
+/* Función que cambia la visibilidad del elemento que le pasamos por id */
+function cambiarVisibilidadElementoId(elementoId, mostrar) {
+  const element = document.getElementById(elementoId);
   if (element) {
-    element.style.display = token ? "block" : "none";
+    element.classList.toggle("d-none", !mostrar);
   }
 }
