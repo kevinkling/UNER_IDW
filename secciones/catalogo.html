@@ -25,8 +25,12 @@
 
                 <div class="collapse navbar-collapse" id="navbarCastillo">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="gestion.html">Gestión</a>
+                        <li class="nav-item dropdown d-none" id="navbarGestion">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Gestión </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarGestion">
+                              <li><a class="dropdown-item" href="gestion_salones.html">Gestión de Salones</a></li>
+                              <li><a class="dropdown-item" href="gestion_servicios.html">Gestión de Servicios</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../index.html">Inicio</a>
@@ -39,6 +43,15 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="presupuesto.html">Presupuestar</a>
+                        </li>
+                        <li class="nav-item" id="loginNavItem">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                        <li class="nav-item d-none" id="logoutNavItem">
+                            <a class="nav-link" href="#" id="logoutBtn">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -62,6 +75,7 @@
         <p class="mb-0">&copy; 2025 <strong>Salones Infantiles</strong>. Todos los derechos reservados.</p>
     </footer>
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../js/main.js"></script>
     <script src="../js/catalogo.js"></script>
 </body>
 
