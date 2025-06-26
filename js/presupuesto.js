@@ -54,7 +54,6 @@ function actualizarTotal() {
   importeTotalSpan.textContent = `$${total.toFixed(2)}`;
 }
 
-// Actualizar imagen del salón
 function actualizarImagenSalon() {
   const salon = salones[salonSelect.value];
   if (salon && salon.imagen) {
@@ -65,7 +64,6 @@ function actualizarImagenSalon() {
   }
 }
 
-// Manejo envío formulario
 function manejarEnvioFormulario(e) {
   e.preventDefault();
 
@@ -77,32 +75,32 @@ function manejarEnvioFormulario(e) {
     })
     .filter(Boolean);
 
-  const contacto = {
+  const presupuesto = {
     nombre: formContacto.nombre.value.trim(),
     correo: formContacto.correo.value.trim(),
     telefono: formContacto.telefono.value.trim(),
     salon: salon?.nombre || "No seleccionado",
     servicios: serviciosSeleccionados,
     total: importeTotalSpan.textContent,
+    fecha: new Date().toLocaleString()
   };
 
   // Actualizar contenido del modal
-  document.getElementById("resumenNombre").textContent = contacto.nombre;
-  document.getElementById("resumenCorreo").textContent = contacto.correo;
-  document.getElementById("resumenTelefono").textContent = contacto.telefono;
-  document.getElementById("resumenSalon").textContent = contacto.salon;
-  document.getElementById("resumenServicios").textContent = contacto.servicios.length ? contacto.servicios.join(", ") : "Ninguno";
-  document.getElementById("resumenTotal").textContent = contacto.total;
+  document.getElementById("resumenNombre").textContent = presupuesto.nombre;
+  document.getElementById("resumenCorreo").textContent = presupuesto.correo;
+  document.getElementById("resumenTelefono").textContent = presupuesto.telefono;
+  document.getElementById("resumenSalon").textContent = presupuesto.salon;
+  document.getElementById("resumenServicios").textContent = presupuesto.servicios.length ? presupuesto.servicios.join(", ") : "Ninguno";
+  document.getElementById("resumenTotal").textContent = presupuesto.total;
 
-  // Guardar presupuesto en localStorage
-  guardarPresupuesto(contacto);
+  guardarPresupuesto(presupuesto);
 
-  // Mostrar modal y autodescartarlo
+  // Modal
   const modal = new bootstrap.Modal(document.getElementById("reservaModal"));
   modal.show();
   setTimeout(() => modal.hide(), 10000);
 
-  // Resetear formulario y UI
+  
   formContacto.reset();
   salonSelect.selectedIndex = 0;
   actualizarImagenSalon();
@@ -110,10 +108,9 @@ function manejarEnvioFormulario(e) {
   actualizarTotal();
 }
 
-function guardarPresupuesto(contacto) {
-  // Guardar en localStorage
+function guardarPresupuesto(presupuesto) {
   const presupuestos = JSON.parse(localStorage.getItem("presupuestos")) || [];
-  presupuestos.push(contacto);
+  presupuestos.push(presupuesto);
   localStorage.setItem("presupuestos", JSON.stringify(presupuestos));
 }
 

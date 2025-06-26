@@ -1,8 +1,11 @@
-// Selectores de DOM
+import { acortarTexto } from "./utils.js";
+
 const formSalon = document.getElementById("formSalon");
-const nombreInput = document.getElementById("nombre");
+const nombreInput = document.getElementById("titulo");
 const medidasInput = document.getElementById("medidas");
+const descripcionInput = document.getElementById("descripcion");
 const importeInput = document.getElementById("importe");
+const direccionInput = document.getElementById("direccion");
 const imagenInput = document.getElementById("imagen");
 const tablaBody = document.querySelector("#tabla-salones tbody");
 
@@ -25,17 +28,20 @@ function renderTabla() {
     fila.innerHTML = `
       <td>${salon.nombre}</td>
       <td>${salon.medidas}</td>
+      <td>${acortarTexto(salon.descripcion, 15) || "-"}</td>
       <td>$${salon.importe?.toLocaleString() || "-"}</td>
+      <td>${salon.direccion}</td>
       <td><img src="${salon.imagen}" alt="${salon.nombre}" style="max-width:100px; max-height:80px; object-fit:cover;"></td>
       <td class="text-center">
-        <button class="btn btn-sm btn-warning me-2 editar-btn" data-index="${index}">Editar</button>
-        <button class="btn btn-sm btn-danger borrar-btn" data-index="${index}">Borrar</button>
+        <div class="d-flex flex-column align-items-center gap-2">
+          <button class="btn btn-sm btn-warning editar-btn" data-index="${index}">Editar</button>
+          <button class="btn btn-sm btn-danger borrar-btn" data-index="${index}">Borrar</button>
+        </div>
       </td>
     `;
     tablaBody.appendChild(fila);
   });
 
-  // Para cada boton de editar le agrego el evento click que llama a la funcion editarSalon
   document.querySelectorAll(".editar-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       const index = e.target.dataset.index;
@@ -43,7 +49,6 @@ function renderTabla() {
     });
   });
 
-  // Para cada boton de borrar le agrego el evento click que llama a la funcion borrarSalon
   document.querySelectorAll(".borrar-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       const index = e.target.dataset.index;
@@ -70,11 +75,14 @@ function limpiarFormulario() {
  * También convierte la imagen a base64 para guardarla.
  */
 formSalon.addEventListener("submit", e => {
-  e.preventDefault(); // Evita comportamiento por defecto
+  e.preventDefault();
 
   const nombre = nombreInput.value.trim();
   const medidas = medidasInput.value.trim();
+  const descripcion = descripcionInput.value.trim();
   const importe = parseFloat(importeInput.value);
+  const direccion = direccionInput.value.trim();
+  
 
   if (!nombre || !medidas || isNaN(importe)) {
     alert("Por favor completa todos los campos.");
@@ -87,7 +95,7 @@ formSalon.addEventListener("submit", e => {
     if (imagenInput.files.length > 0) {
       // Leer nueva imagen y actualizar
       leerImagen(imagenInput.files[0]).then(imgDataUrl => {
-        salones[editIndex] = { nombre, medidas, imagen: imgDataUrl, importe };
+        salones[editIndex] = { nombre, medidas, descripcion, importe, direccion, imagen: imgDataUrl};
         guardarSalon();
         renderTabla();
         limpiarFormulario();
@@ -96,7 +104,9 @@ formSalon.addEventListener("submit", e => {
       // Mantener imagen actual
       salones[editIndex].nombre = nombre;
       salones[editIndex].medidas = medidas;
+      salones[editIndex].descripcion = descripcion;
       salones[editIndex].importe = importe;
+      salones[editIndex].direccion = direccion;
       guardarSalon();
       renderTabla();
       limpiarFormulario();
@@ -109,7 +119,7 @@ formSalon.addEventListener("submit", e => {
     }
 
     leerImagen(imagenInput.files[0]).then(imgDataUrl => {
-      salones.push({ nombre, medidas, imagen: imgDataUrl, importe });
+      salones.push({ nombre, medidas, descripcion, importe, direccion, imagen: imgDataUrl});
       guardarSalon();
       renderTabla();
       limpiarFormulario();
@@ -131,8 +141,10 @@ function editarSalon(index) {
   const salon = salones[index];
   nombreInput.value = salon.nombre;
   medidasInput.value = salon.medidas;
+  descripcionInput.value = salon.descripcion || "";
   importeInput.value = salon.importe ?? "";
-  imagenInput.value = ""; // No cargamos imagen para editar, usuario puede cambiarla si quiere
+  direccionInput.value = salon.direccion;
+  imagenInput.value = "";
   imagenInput.required = false;
   editIndex = index;
   formSalon.querySelector('button[type="submit"]').textContent = "Actualizar salón";

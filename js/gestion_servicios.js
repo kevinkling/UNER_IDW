@@ -1,51 +1,5 @@
 // Obtener servicios del localStorage o usar una lista por defecto
-const servicios = JSON.parse(localStorage.getItem("servicios")) || [
-  {
-    nombre: "Decoración temática",
-    importe: 15000.0,
-    descripcion: "Globos, pancartas, centros de mesa con personajes infantiles (superhéroes, princesas, animales, etc.).",
-  },
-  {
-    nombre: "Animadores y shows",
-    importe: 12000.0,
-    descripcion: "Payasos, magos, cuentacuentos, personajes disfrazados, títeres.",
-  },
-  {
-    nombre: "Catering para niños",
-    importe: 10000.0,
-    descripcion: "Menú especial con snacks saludables, mini pizzas, cupcakes, jugos naturales.",
-  },
-  {
-    nombre: "Tortas y postres personalizados",
-    importe: 8000.0,
-    descripcion: "Tortas temáticas, gelatinas, mesa de dulces.",
-  },
-  {
-    nombre: "Fotografía y video",
-    importe: 9000.0,
-    descripcion: "Servicio de fotógrafo profesional o cabina de fotos con accesorios divertidos.",
-  },
-  {
-    nombre: "Juegos y actividades",
-    importe: 7000.0,
-    descripcion: "Pintura de caras, globoflexia, talleres de manualidades, juegos inflables.",
-  },
-  {
-    nombre: "Mobiliario extra y equipo audiovisual",
-    importe: 11000.0,
-    descripcion: "Mesas y sillas adicionales, equipo de sonido, micrófonos, proyectores.",
-  },
-  {
-    nombre: "Servicio de limpieza y montaje",
-    importe: 5000.0,
-    descripcion: "Montaje antes de la fiesta y limpieza después.",
-  },
-  {
-    nombre: "Paquetes de souvenirs",
-    importe: 4000.0,
-    descripcion: "Bolsitas con regalos para los niños invitados.",
-  },
-];
+const servicios = JSON.parse(localStorage.getItem("servicios")) || [];
 
 const formServicio = document.getElementById("formServicio");
 const nombreInput = document.getElementById("nombreServicio");
