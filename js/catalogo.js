@@ -1,31 +1,4 @@
-// Obtener salones del localStorage o usar una lista por defecto
-const salones = JSON.parse(localStorage.getItem("salones")) || [
-    {
-        nombre: "Salón Fiesta Alegre",
-        medidas: "30mts x 40mts",
-        importe: 15000,  // ejemplo en la moneda que uses
-        imagen: "../img/salon 1.png"
-    },
-    {
-        nombre: "Salón Pequeños Sueños",
-        medidas: "15mts x 20mts",
-        importe: 8000,
-        imagen: "../img/salon 2.png"
-    },
-    {
-        nombre: "Salón Diversión Total",
-        medidas: "25mts x 20mts",
-        importe: 12000,
-        imagen: "../img/salon 3.png"
-    },
-    {
-        nombre: "Salón Gran Celebración",
-        medidas: "30mts x 40mts",
-        importe: 16000,
-        imagen: "../img/salon 4.png"
-    }
-];
-
+const salones = JSON.parse(localStorage.getItem("salones")) || [];
 
 /* Función para renderizar el catálogo */
 function renderCatalogo() {
@@ -47,11 +20,5 @@ function renderCatalogo() {
         container.appendChild(card);
     });
 }
-
-// Guardar los salones por defecto si es la primera vez
-if (!localStorage.getItem("salones")) {
-    localStorage.setItem("salones", JSON.stringify(salones));
-}
-
 
 renderCatalogo();
