@@ -3,16 +3,20 @@ import { login } from "./auth.js";
 document.getElementById("loginForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
 
   const resultado = await login(username, password);
 
-  if (resultado) {
+  const mensaje = document.getElementById("mensaje");
+
+  if (resultado?.error) {
+    mensaje.textContent = "Acceso denegado. Solo usuarios ADMIN.";
+  } else if (resultado) {
     sessionStorage.setItem("accessToken", resultado.accessToken);
     sessionStorage.setItem("username", resultado.username);
     window.location.href = "../index.html";
   } else {
-    document.getElementById("mensaje").textContent = "Credenciales incorrectas";
+    mensaje.textContent = "Credenciales incorrectas";
   }
 });

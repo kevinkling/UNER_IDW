@@ -10,13 +10,12 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/estilo.css" rel="stylesheet" />
   </head>
-
-  <body>
+  <body class="bg-rosa-claro">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-rosa">
         <div class="container-fluid">
           <a class="navbar-brand" href="../index.html">
-            <img src="../img/logohorizontal.png" alt="Castillo de Colores" height="70">
+            <img src="../img/logohorizontal.png" alt="Castillo de Colores" height="70" />
           </a>
 
           <button
@@ -33,12 +32,12 @@
 
           <div class="collapse navbar-collapse" id="navbarCastillo">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown" id="navbarGestion">
+              <li class="nav-item dropdown d-none" id="navbarGestion">
                 <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Gestión </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarGestion">
                   <li><a class="dropdown-item" href="gestion_salones.html">Gestión de Salones</a></li>
-                  <li><a class="dropdown-item active" href="#">Gestión de Servicios</a></li>
-                  <li><a class="dropdown-item" href="gestion_usuarios_api.html">Gestión de Usuarios Api</a></li>
+                  <li><a class="dropdown-item" href="gestion_servicios.html">Gestión de Servicios</a></li>
+                  <li><a class="dropdown-item active" href="#">Gestión de Usuarios Api</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -51,7 +50,7 @@
                 <a class="nav-link" href="catalogo.html">Catalogo</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contacto.html">Contacto</a>
+                <a class="nav-link" href="#">Contacto</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="presupuesto.html">Presupuestar</a>
@@ -68,40 +67,37 @@
       </nav>
     </header>
 
-    <main class="container-xl my-5">
-      <h2 class="mb-4 text-center">Gestión de Servicios</h2>
+    <main class="container my-5" style="max-width: 1400px">
+      <h1 class="text-center mb-4">Gestión de Usuarios de la API</h1>
 
-      <form id="formServicio" class="mb-5">
-        <div class="row g-3">
-          <div class="col-md-6">
-            <input type="text" class="form-control" id="nombreServicio" placeholder="Nombre del servicio" required />
-          </div>
-          <div class="col-md-6">
-            <input type="number" class="form-control" id="importeServicio" placeholder="Importe ($)" min="0" step="0.01" required />
-          </div>
-        </div>
-        <div class="mt-3">
-          <textarea class="form-control" id="descripcionServicio" rows="3" placeholder="Descripción del servicio" required></textarea>
-        </div>
-        <div class="text-end mt-3">
-          <button type="submit" class="btn bg-rosa text-white">Guardar servicio</button>
-        </div>
-      </form>
+      <p>
+        Ver los datos directamente en la API:
+        <a href="https://dummyjson.com/users" target="_blank">https://dummyjson.com/users</a>
+      </p>
 
       <div class="table-responsive">
-        <table id="tabla-servicios" class="table table-striped table-bordered align-middle">
-          <thead class="table-dark text-center">
+        <table class="table table-striped table-hover">
+          <thead>
             <tr>
+              <th>Avatar</th>
               <th>Nombre</th>
-              <th>Importe</th>
-              <th>Descripción</th>
-              <th>Acciones</th>
+              <th>Edad</th>
+              <th>Género</th>
+              <th>Usuario</th>
+              <th>Email</th>
+              <th>Empresa</th>
+              <th>Departamento</th>
+              <th>Título</th>
+              <th>País</th>
+              <th>Rol</th>
             </tr>
           </thead>
-          <tbody>
-            <!-- Filas dinámicas -->
-          </tbody>
+          <tbody id="tabla-usuarios-body"></tbody>
         </table>
+      </div>
+
+      <div class="d-flex justify-content-center my-4">
+        <button id="verMasBtn" class="btn btn-primary">Ver más</button>
       </div>
     </main>
 
@@ -111,6 +107,6 @@
 
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="../js/main.js"></script>
-    <script src="../js/gestion_servicios.js"></script>
+    <script type="module" src="../js/gestion_usuarios_api.js"></script>
   </body>
 </html>
