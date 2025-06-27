@@ -12,17 +12,27 @@ export async function login(usuario, contrasena) {
     });
 
     if (!response.ok) {
-      return null; // Si la respuesta no es OK, retorna null
+      return null;
     }
 
     const data = await response.json();
 
-    if (data.role !== "admin") {
+    const userResponse = await fetch(`https://dummyjson.com/users/${data.id}`);
+    const userData = await userResponse.json();
+
+    if (userData.role !== "admin") {
       console.error("Error al intentar iniciar sesión:", "No autorizado");
       return { error: "No autorizado" };
     }
 
-    return data; // Incluye token, username, etc.
+    // Datos combinados: login + datos del usuario
+    return {
+      ...data,
+      role: userData.role,
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      image: userData.image,
+    };
   } catch (error) {
     console.error("Error al intentar iniciar sesión:", error);
     return null;
