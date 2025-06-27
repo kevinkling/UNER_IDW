@@ -12,11 +12,17 @@ export async function login(usuario, contrasena) {
     });
 
     if (!response.ok) {
-      return null; // login inválido
+      return null; // Si la respuesta no es OK, retorna null
     }
 
     const data = await response.json();
-    return data; // incluye token, username, etc.
+
+    if (data.role !== "admin") {
+      console.error("Error al intentar iniciar sesión:", "No autorizado");
+      return { error: "No autorizado" };
+    }
+
+    return data; // Incluye token, username, etc.
   } catch (error) {
     console.error("Error al intentar iniciar sesión:", error);
     return null;
